@@ -4,8 +4,7 @@ import PackageDescription
 let package = Package(
     name: "PageControllerView",
     platforms: [
-        .macOS(.v14), // macOS 14 and later
-        .iOS(.v17), // iOS 17 and later
+        .macOS(.v14) // macOS 14 and later
     ],
     products: [
         .library(
