@@ -18,7 +18,7 @@ import AppKit
             default:
                rootView = .blue
             }
-            return rootView
+            return AnyView(rootView)
          }
             .onChange(of: curPageIndex) { _, _ in // debugging to see that we get callbacks from the binding
                Swift.print("curPageIndex: \(curPageIndex)")

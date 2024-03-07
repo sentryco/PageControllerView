@@ -10,7 +10,7 @@ extension PageControllerView {
    /**
     * Define a Coordinator class to handle delegate callbacks
     */
-   class Coordinator: NSObject, NSPageControllerDelegate {
+   public class Coordinator: NSObject, NSPageControllerDelegate {
       /**
        * Parent
        */
@@ -18,7 +18,7 @@ extension PageControllerView {
       /**
        * Set parent
        */
-      init(_ pageControllerView: PageControllerView) {
+      public init(_ pageControllerView: PageControllerView) {
          self.parent = pageControllerView
       }
    }
@@ -32,7 +32,7 @@ extension PageControllerView.Coordinator {
     * - Returns: an identifier for the given object that we can use to get the data model item
     * - Remark: This could be based on the object's position in an array or its properties
     */
-   func pageController(_ pageController: NSPageController, identifierFor object: Any) -> NSPageController.ObjectIdentifier { // String
+   public func pageController(_ pageController: NSPageController, identifierFor object: Any) -> NSPageController.ObjectIdentifier { // String
       Swift.print("Coordinator.identifierFor: \(object)")
       return String(describing: object) // Return identifier
    }
@@ -47,7 +47,7 @@ extension PageControllerView.Coordinator {
     *   - identifier: page id
     * - Returns: current page
     */
-   func pageController(_ pageController: NSPageController, viewControllerForIdentifier identifier: NSPageController.ObjectIdentifier) -> NSViewController {
+   public func pageController(_ pageController: NSPageController, viewControllerForIdentifier identifier: NSPageController.ObjectIdentifier) -> NSViewController {
       Swift.print("viewControllerForIdentifier \(identifier)") 
       let rootView: some View = AnyView(parent.makeView(identifier)) // ⚠️️ We can probably find a better way than using AnyView
       let hostingController = NSHostingController(rootView: rootView)
@@ -60,7 +60,7 @@ extension PageControllerView.Coordinator {
     * - Fixme: ⚠️️ We can add callback here to update `PageIndicator` (or use WillStartLiveTransition, if we want more instant UX etc)
     * - Parameter pageController: pagecontroller that the live transition ended in
     */
-   func pageControllerDidEndLiveTransition(_ pageController: NSPageController) {
+   public func pageControllerDidEndLiveTransition(_ pageController: NSPageController) {
       pageController.completeTransition() // Hide the transition view used for animation and show the selectedViewController.view. Generally, this is called during pageControllerDidEndLiveTransition: in the delegate when the new contents of view is ready to be displayed.
       parent.$currentPage.wrappedValue = pageController.selectedIndex // update binding
    }

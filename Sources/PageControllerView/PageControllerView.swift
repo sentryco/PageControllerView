@@ -10,25 +10,25 @@ import AppKit
  * - Note: ref: https://github.com/benjaminsage/iPages/
  * - Note: ref: https://github.com/notsobigcompany/BigUIPaging/
  */
-struct PageControllerView: NSViewControllerRepresentable { // PageControllerRepresentable
+public struct PageControllerView: NSViewControllerRepresentable { // PageControllerRepresentable
    /**
     * Define any properties needed for your NSPageController
     */
-   let dataSource: [NSPageController.ObjectIdentifier] // Replace with your data source
+   public let dataSource: [NSPageController.ObjectIdentifier] // Replace with your data source
    /**
     * This should change page from the caller
     * Use this to get callbacks when page changes, and also use it to set pages
     */
-   @Binding var currentPage: Int
+   @Binding public var currentPage: Int
    /**
     * - Fixme: ⚠️️ we could try use some View somehow
     */
-   typealias MakeView = (_ id: NSPageController.ObjectIdentifier) -> any View
+   public typealias MakeView = (_ id: NSPageController.ObjectIdentifier) -> AnyView
    /**
     * Callback to make content for each page
     * - Description: here we make a callback, that takes index and returns View for the NSHostingController to use
     * - Remark: The idea is to make this more like swiftui `tabview` api
     */
-   var makeView: MakeView = { id in Swift.print("default makeView - id: \(id)"); return EmptyView() }
+   public var makeView: MakeView = { id in Swift.print("default makeView - id: \(id)"); return AnyView(EmptyView()) }
 }
 #endif

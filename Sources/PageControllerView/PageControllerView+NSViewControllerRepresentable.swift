@@ -11,7 +11,7 @@ extension PageControllerView {
     * The Coordinator can handle tasks such as responding to user input, managing the current page index, and managing the view controllers.
     * - Returns A new instance of Coordinator.
     */
-   func makeCoordinator() -> Coordinator {
+   public func makeCoordinator() -> Coordinator {
       Coordinator(self) // Create a new Coordinator instance
    }
    /**
@@ -21,7 +21,7 @@ extension PageControllerView {
     * - Parameter: The context in which the NSViewControllerRepresentable is being used.
     * - Returns A configured instance of NSPageController.
     */
-   func makeNSViewController(context: Context) -> NSPageController {
+   public func makeNSViewController(context: Context) -> NSPageController {
       let pageController = NSPageController() // PageController(frame: .zero) // ()  // PageController() /
       pageController.view = EffectView( // Onboarding for macOS usually has a translucent background
          material: .underWindowBackground, // Set the material of the effect view to underWindowBackground
@@ -46,7 +46,7 @@ extension PageControllerView {
     * - Parameter: nsViewController The NSPageController that needs to be updated.
     * - Parameter: context The context in which the NSViewControllerRepresentable is being used.
     */
-   func updateNSViewController(_ nsViewController: NSPageController, context: Context) {
+   public func updateNSViewController(_ nsViewController: NSPageController, context: Context) {
       // Update the NSPageController when the SwiftUI view's state changes
       goToPage(pageController: nsViewController, index: currentPage) // we add the binding here, not sure if the unwrapp is needed
    }
