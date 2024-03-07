@@ -1,3 +1,5 @@
+[![Tests](https://github.com/sentryco/PageControllerView/actions/workflows/Tests.yml/badge.svg)](https://github.com/sentryco/PageControllerView/actions/workflows/Tests.yml)
+
 # PageControllerView
 
 PageControllerView is a Swift library that provides `tab view like` support for macOS applications using SwiftUI. It primarily solves the issue of swiping left and right for macOS onboarding.
