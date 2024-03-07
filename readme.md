@@ -17,22 +17,34 @@ Here is an example of how to use the `PageControllerView` in a SwiftUI view:
 > Swiping does not work properly in Xcode preview canvas. To see the swipe effect, build and run the app target for macOS.
 
 ```swift
-@State var curPageIndex: Int = 0
-PageControllerView(dataSource: ["green", "blue", "red"], currentPage: $curPageIndex ) { identifier in
-    var rootView: Color
-    switch identifier {
-    case "green":
-        rootView = .green
-    case "red":
-        rootView = .red
-    default:
-        rootView = .blue
-    }
-    return rootView
+#if os(macOS)
+@main
+
+struct MacApp: App {
+   @State var curPageIndex: Int = 0
+   var body: some Scene {
+      WindowGroup {
+         PageControllerView(dataSource: ["green", "blue", "red"], currentPage: $curPageIndex ) { identifier in
+             var rootView: Color
+             switch identifier {
+             case "green":
+                 rootView = .green
+             case "red":
+                 rootView = .red
+             default:
+                 rootView = .blue
+             }
+             return AnyView(rootView)
+         }
+         .onChange(of: curPageIndex) { _, _ in // debugging to see that we get callbacks from the binding
+             Swift.print("curPageIndex: \(curPageIndex)")
+         }
+      }
+      .windowStyle(.hiddenTitleBar) // Hides the top bar
+      .windowToolbarStyle(.unifiedCompact(showsTitle: false)) // Hides the top bar text and more compact vertical sizing than .unified
+   }
 }
-.onChange(of: curPageIndex) { _, _ in // debugging to see that we get callbacks from the binding
-    Swift.print("curPageIndex: \(curPageIndex)")
-}
+#endif
 ```
 
 ## References
