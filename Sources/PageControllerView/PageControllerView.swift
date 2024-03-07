@@ -30,5 +30,17 @@ public struct PageControllerView: NSViewControllerRepresentable { // PageControl
     * - Remark: The idea is to make this more like swiftui `tabview` api
     */
    public var makeView: MakeView = { id in Swift.print("default makeView - id: \(id)"); return AnyView(EmptyView()) }
+   /**
+    * Initializes a new PageControllerView.
+    * - Parameters:
+    *   - dataSource: An array of identifiers for the pages. Each identifier is used to create the corresponding page.
+    *   - currentPage: A binding to a property that tracks the currently selected page. The PageControllerView updates the property as the user interacts with the interface.
+    *   - makeView: A closure that takes an identifier and returns the view for the corresponding page. By default, it returns an empty view.
+    */
+   public init(dataSource: [NSPageController.ObjectIdentifier], currentPage: Binding<Int>, makeView: @escaping MakeView = { _ in AnyView(EmptyView()) }) {
+      self.dataSource = dataSource
+      self._currentPage = currentPage
+      self.makeView = makeView
+   }
 }
 #endif
