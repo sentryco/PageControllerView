@@ -2,9 +2,11 @@
 import SwiftUI
 import AppKit
 /**
+ * Preview
  * - Important: ⚠️️ Preview doesn't work properly with swiping, so run the app to see the swipe work properly
+ * - Note: Because of github action we can't currently use more modern: #Preview(traits: .fixedLayout(width: 300, height: 300)) {
  */
-#Preview(traits: .fixedLayout(width: 300, height: 300)) {
+struct PageControl_Previews: PreviewProvider {
    struct ContentView: View {
       @State var curPageIndex: Int = 0
       var body: some View {
@@ -25,6 +27,10 @@ import AppKit
             }
       }
    }
-   return ContentView()
+   static var previews: some View {
+      return ContentView()
+         .frame(width: 300, height: 300)
+         
+   }
 }
 #endif
