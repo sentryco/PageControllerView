@@ -17,11 +17,12 @@ public struct PageControllerView: NSViewControllerRepresentable { // PageControl
    public let dataSource: [NSPageController.ObjectIdentifier] // Replace with your data source
    /**
     * This should change page from the caller
-    * Use this to get callbacks when page changes, and also use it to set pages
+    * - Description: Use this to get callbacks when page changes, and also use it to set pages
     */
    @Binding public var currentPage: Int
    /**
     * - Fixme: ⚠️️ we could try use some View somehow
+    * - Fixme: ⚠️️ move into extension?
     */
    public typealias MakeView = (_ id: NSPageController.ObjectIdentifier) -> AnyView
    /**
@@ -31,7 +32,8 @@ public struct PageControllerView: NSViewControllerRepresentable { // PageControl
     */
    public var makeView: MakeView = { id in Swift.print("default makeView - id: \(id)"); return AnyView(EmptyView()) }
    /**
-    * Initializes a new PageControllerView.
+    * Initializes a new PageControllerView
+    * - Fixme: ⚠️️ doc each line, use copilot
     * - Parameters:
     *   - dataSource: An array of identifiers for the pages. Each identifier is used to create the corresponding page.
     *   - currentPage: A binding to a property that tracks the currently selected page. The PageControllerView updates the property as the user interacts with the interface.

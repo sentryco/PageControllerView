@@ -5,10 +5,11 @@ import AppKit
 extension PageControllerView {
    /**
     * Updates "page-flipper"
-    * - Parameter pageController: reference to pageController
-    * - Parameter index: current index
-    * - Fixme: ⚠️️ we could make animation optional
-    * - Fixme: ⚠️️ remove param pageController, figure out how to reach it without
+    * - Fixme: ⚠️️ We could make animation optional
+    * - Fixme: ⚠️️ Remove param pageController, figure out how to reach it without
+    * - Parameters:
+    *   - pageController: reference to pageController
+    *   - index: current index
     */
    func goToPage(pageController: NSPageController, index: Int) {
       NSAnimationContext.runAnimationGroup({ _ /*context*/ in // To animate a selectedIndex change:

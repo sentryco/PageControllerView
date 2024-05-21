@@ -11,6 +11,7 @@ import AppKit
 open class EffectView: NSVisualEffectView {
    /**
     * Initializes a new instance of the `EffectView` with the given material, blending mode, and frame.
+    * - Fixme: ⚠️️ doc each line, use copilot
     * - Parameters:
     *   - material: The translucent material to use as a background.
     *   - blendingMode: The blending mode to use.
@@ -18,7 +19,10 @@ open class EffectView: NSVisualEffectView {
     */
    public init(material: NSVisualEffectView.Material = .headerView, blendingMode: NSVisualEffectView.BlendingMode = .withinWindow, frame frameRect: NSRect) {
       super.init(frame: frameRect)
-      self.config(material: material, blendingMode: blendingMode)
+      self.config(
+         material: material,
+         blendingMode: blendingMode
+      )
    }
    /**
     * Required initializer that is not implemented.
@@ -44,5 +48,4 @@ extension EffectView {
       self.blendingMode = blendingMode
    }
 }
-
 #endif

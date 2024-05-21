@@ -13,10 +13,12 @@ extension PageControllerView {
    public class Coordinator: NSObject, NSPageControllerDelegate {
       /**
        * Parent
+       * - Fixme: ⚠️️ add description
        */
       var parent: PageControllerView
       /**
        * Set parent
+       * - Fixme: ⚠️️ add reasoning
        */
       public init(_ pageControllerView: PageControllerView) {
          self.parent = pageControllerView
@@ -33,7 +35,7 @@ extension PageControllerView.Coordinator {
     * - Remark: This could be based on the object's position in an array or its properties
     */
    public func pageController(_ pageController: NSPageController, identifierFor object: Any) -> NSPageController.ObjectIdentifier { // String
-      Swift.print("Coordinator.identifierFor: \(object)")
+      // Swift.print("Coordinator.identifierFor: \(object)")
       return String(describing: object) // Return identifier
    }
    /**
@@ -42,13 +44,14 @@ extension PageControllerView.Coordinator {
     * - Remark: This could involve looking up the identifier in a dictionary or storyboard
     * - Remark: Displays the `ViewController` in the page-controller
     * - Remark: We can also use NSViewcontroller and a NSHostingView
+    * - Fixme: ⚠️️ doc each line, use copilot
     * - Parameters:
     *   - pageController: current page controller
     *   - identifier: page id
     * - Returns: current page
     */
    public func pageController(_ pageController: NSPageController, viewControllerForIdentifier identifier: NSPageController.ObjectIdentifier) -> NSViewController {
-      Swift.print("viewControllerForIdentifier \(identifier)") 
+      // Swift.print("viewControllerForIdentifier \(identifier)")
       let rootView: some View = AnyView(parent.makeView(identifier)) // ⚠️️ We can probably find a better way than using AnyView
       let hostingController = NSHostingController(rootView: rootView)
       hostingController.view.autoresizingMask = [.height, .width] // this is the key to make the swiftuiu view work on init and when window is resized
@@ -58,7 +61,7 @@ extension PageControllerView.Coordinator {
     * Delegate callback
     * - Description: Ends the transition when the user swipes left or right
     * - Fixme: ⚠️️ We can add callback here to update `PageIndicator` (or use WillStartLiveTransition, if we want more instant UX etc)
-    * - Parameter pageController: pagecontroller that the live transition ended in
+    * - Parameter pageController: The pagecontroller that the live transition ended in
     */
    public func pageControllerDidEndLiveTransition(_ pageController: NSPageController) {
       pageController.completeTransition() // Hide the transition view used for animation and show the selectedViewController.view. Generally, this is called during pageControllerDidEndLiveTransition: in the delegate when the new contents of view is ready to be displayed.

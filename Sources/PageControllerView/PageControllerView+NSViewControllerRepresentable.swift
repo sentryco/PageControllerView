@@ -2,13 +2,13 @@
 import SwiftUI
 import AppKit
 /**
- * NSViewControllerRepresentable extension
+ * `NSViewControllerRepresentable` extension
  */
 extension PageControllerView {
    /**
     * This method is part of the NSViewControllerRepresentable protocol in SwiftUI for macOS.
-    * It's responsible for creating an instance of Coordinator, which is a helper class that can manage and coordinate with the NSPageController.
-    * The Coordinator can handle tasks such as responding to user input, managing the current page index, and managing the view controllers.
+    * - Note: It's responsible for creating an instance of Coordinator, which is a helper class that can manage and coordinate with the NSPageController.
+    * - Note: The Coordinator can handle tasks such as responding to user input, managing the current page index, and managing the view controllers.
     * - Returns A new instance of Coordinator.
     */
    public func makeCoordinator() -> Coordinator {
@@ -37,14 +37,14 @@ extension PageControllerView {
    }
    /**
     * This method is part of the NSViewControllerRepresentable protocol in SwiftUI for macOS.
-    * It's called whenever the SwiftUI view's state changes and the changes need to be reflected in the corresponding NSViewController.
-    * In this specific case, the method is currently printing the frame of the NSPageController's view to the console.
-    * However, it's also where you would update the NSPageController based on changes to the SwiftUI view's state.
-    * For example, if the SwiftUI view had a @State variable that the NSPageController needed to reflect, you would update that here.
-    *  - Fixme: ⚠️️ we might want to keep selection value in sync with page controller here
-    *
-    * - Parameter: nsViewController The NSPageController that needs to be updated.
-    * - Parameter: context The context in which the NSViewControllerRepresentable is being used.
+    * - Description: It's called whenever the SwiftUI view's state changes and the changes need to be reflected in the corresponding NSViewController.
+    *                In this specific case, the method is currently printing the frame of the NSPageController's view to the console.
+    *                However, it's also where you would update the NSPageController based on changes to the SwiftUI view's state.
+    *                For example, if the SwiftUI view had a @State variable that the NSPageController needed to reflect, you would update that here.
+    * - Fixme: ⚠️️ we might want to keep selection value in sync with page controller here
+    * - Parameters:
+    *    - nsViewController: The NSPageController that needs to be updated.
+    *    - context: The context in which the NSViewControllerRepresentable is being used.
     */
    public func updateNSViewController(_ nsViewController: NSPageController, context: Context) {
       // Update the NSPageController when the SwiftUI view's state changes

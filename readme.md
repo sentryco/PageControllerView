@@ -54,3 +54,5 @@ struct MacApp: App {
 - [iPages](https://github.com/benjaminsage/iPages/)
 - [BigUIPaging](https://github.com/notsobigcompany/BigUIPaging/)
 
+## Todo: 
+- Add dedicated UITests
