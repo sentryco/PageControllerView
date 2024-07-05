@@ -28,7 +28,6 @@ extension PageControllerView {
          blendingMode: .behindWindow, // Set the blending mode of the effect view to behindWindow
          frame: .zero // Set the frame of the effect view to the specified frame
       ) // Design element
-//      pageController.view.translatesAutoresizingMaskIntoConstraints = false
       pageController.view.autoresizingMask = [.height, .width] // Resizes on window resize etc
       pageController.delegate = context.coordinator // Informs the class on page id activity
       pageController.arrangedObjects = dataSource // Array(0..<4).map { String($0) } // The number of items in this array must be equal to the number of view controllers you want to display inside the page controller. So if you wanted to display three view controllers in the page controller, you might create an array with three arbitrarily named items like this:

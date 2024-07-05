@@ -18,6 +18,9 @@ Here is an example of how to use the `PageControllerView` in a SwiftUI view:
 > [!NOTE]  
 > Swiping does not work properly in Xcode preview canvas. To see the swipe effect, build and run the app target for macOS.
 
+> [!WARNING]
+> To align page views to a constraintless envitronment add the pageview to a ZStack that has .ignoresSafeArea() with a clear Rectangle that has idealWidth and idealHeight set to .inifinite. 
+
 ```swift
 #if os(macOS)
 @main
