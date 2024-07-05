@@ -45,6 +45,7 @@ extension PageControllerView.Coordinator {
     * - Remark: Displays the `ViewController` in the page-controller
     * - Remark: We can also use NSViewcontroller and a NSHostingView
     * - Fixme: ⚠️️ doc each line, use copilot
+    * - Fixme: ⚠️️ ref pageController instead of parent?
     * - Parameters:
     *   - pageController: current page controller
     *   - identifier: page id
@@ -54,8 +55,12 @@ extension PageControllerView.Coordinator {
       // Swift.print("viewControllerForIdentifier \(identifier)")
       let rootView: some View = AnyView(parent.makeView(identifier)) // ⚠️️ We can probably find a better way than using AnyView
       let hostingController = NSHostingController(rootView: rootView)
-      hostingController.view.translatesAutoresizingMaskIntoConstraints = false
+//      hostingController.view.translatesAutoresizingMaskIntoConstraints = false
       hostingController.view.autoresizingMask = [.height, .width] // this is the key to make the swiftuiu view work on init and when window is resized
+//      NSLayoutConstraint.activate([
+//         hostingController.view.centerXAnchor.constraint(equalTo: pageController.view.centerXAnchor),
+//         hostingController.view.centerYAnchor.constraint(equalTo: pageController.view.centerYAnchor)
+//      ])
       return hostingController
    }
    /**
