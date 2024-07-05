@@ -53,7 +53,15 @@ extension PageControllerView.Coordinator {
     */
    public func pageController(_ pageController: NSPageController, viewControllerForIdentifier identifier: NSPageController.ObjectIdentifier) -> NSViewController {
       // Swift.print("viewControllerForIdentifier \(identifier)")
-      let rootView: some View = AnyView(parent.makeView(identifier)) // ⚠️️ We can probably find a better way than using AnyView
+      let rootView: some View = AnyView(
+         ZStack {
+            Rectangle() // ⚠️️ this is key to expanding the view to fill the NSView
+               .frame(idealWidth: .infinity, idealHeight: .infinity)
+               .foregroundColor(.clear)
+            parent.makeView(identifier)
+         }
+            .ignoresSafeArea() // ⚠️️ this is key to expanding the view to fill the NSView
+      ) // ⚠️️ We can probably find a better way than using AnyView
       let hostingController = NSHostingController(rootView: rootView)
       hostingController.view.autoresizingMask = [.height, .width] // this is the key to make the swiftuiu view work on init and when window is resized
       return hostingController
