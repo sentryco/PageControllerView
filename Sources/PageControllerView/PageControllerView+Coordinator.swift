@@ -41,6 +41,7 @@ extension PageControllerView.Coordinator {
    /**
     * Instatiate `ViewController` for identifier  (Returns the swift ui view)
     * - Returns: the view controller for the given identifier
+    * - Important: ⚠️️ To align page views to a constraintless environment we add the pageview to a ZStack that has .ignoresSafeArea() with a clear Rectangle that has idealWidth and idealHeight set to .inifinite. This solves a bug where 14px are added to top inset etc
     * - Remark: This could involve looking up the identifier in a dictionary or storyboard
     * - Remark: Displays the `ViewController` in the page-controller
     * - Remark: We can also use `NSViewcontroller` and a `NSHostingView
