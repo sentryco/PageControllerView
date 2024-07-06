@@ -34,18 +34,26 @@ open class EffectView: NSVisualEffectView {
    }
 }
 /**
- * Configures the appearance of the `EffectView`.
+ * Configures the appearance of the `EffectView`
  */
 extension EffectView {
    /**
-    * Configures the material and blending mode of the `EffectView`.
+    * Configures the material and blending mode of the `EffectView`
+    * - Fixme: ⚠️️ Add support for isEmphasized
     * - Parameters:
-    *   - material: The translucent material to use as a background.
-    *   - blendingMode: The blending mode to use.
+    *   - material: The translucent material to use as a background
+    *   - blendingMode: The blending mode to use
     */
    public func config(material: NSVisualEffectView.Material = .headerView, blendingMode: NSVisualEffectView.BlendingMode = .withinWindow) {
       self.material = material
       self.blendingMode = blendingMode
    }
+}
+/**
+ * Const
+ */
+extension EffectView {
+   public typealias Config = (material: NSVisualEffectView.Material, blendingMode: NSVisualEffectView.BlendingMode)
+   public static let defaultConfig: Config = (material: .underWindowBackground, blendingMode: .withinWindow)
 }
 #endif

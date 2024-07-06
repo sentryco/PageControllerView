@@ -24,8 +24,8 @@ extension PageControllerView {
    public func makeNSViewController(context: Context) -> NSPageController {
       let pageController = NSPageController() // PageController(frame: .zero) // ()  // PageController() /
       pageController.view = EffectView( // Onboarding for macOS usually has a translucent background
-         material: .underWindowBackground, // Set the material of the effect view to underWindowBackground
-         blendingMode: .behindWindow, // Set the blending mode of the effect view to behindWindow
+         material: effectViewConfig.material, // Set the material of the effect view to underWindowBackground
+         blendingMode: effectViewConfig.blendingMode, // Set the blending mode of the effect view to behindWindow
          frame: .zero // Set the frame of the effect view to the specified frame
       ) // Design element
       pageController.view.autoresizingMask = [.height, .width] // Resizes on window resize etc
