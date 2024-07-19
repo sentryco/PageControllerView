@@ -49,9 +49,16 @@ struct MacApp: App {
 ```
 
 ## References
-
 - [iPages](https://github.com/benjaminsage/iPages/)
 - [BigUIPaging](https://github.com/notsobigcompany/BigUIPaging/)
+
+## Links
+- The onboarding API is fairly abstract / modular to support "whats new intro" in the future etc
+- Apple docs: https://developer.apple.com/documentation/uikit/uipageviewcontroller/
+- Use `UIPageViewController` https://spin.atomicobject.com/2015/12/23/swift-uipageviewcontroller-tutorial/ And: https://milanbrankovic.medium.com/creating-an-embedded-carousel-with-uipageviewcontroller-9549bd2319c7 and code here: https://github.com/srfunksensei/CarouselSample and https://medium.com/@anitaa_1990/create-a-horizontal-paging-uiscrollview-with-uipagecontrol-swift-4-xcode-9-a3dddc845e92 and https://fabcoding.com/2019/03/14/creating-an-onboarding-screen/ and https://github.com/gabrieltheodoropoulos/iOS-Swift-PageControl and  https://itnext.io/ios-uipageviewcontroller-easy-dd559c51ffa Simple UIPageViewCon... https://github.com/ThornTechPublic/Onboarding-With-UIPageViewController-Final
+- Similar but uses `UICollectionView` etc: https://vijaysharma.ca/create-an-onboarding-screen-in-swift/ We could probably use Horizontal UIColelctionView, with flow? https://github.com/eonist/flowlayout
+- For `SwiftUI`: https://blckbirds.com/post/how-to-create-a-onboarding-screen-in-swiftui-1/
+- Sliding cards via constraints and gestures: https://github.com/eonist/Celestial
 
 ## Todo: 
 - Add dedicated UITests
