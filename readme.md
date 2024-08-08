@@ -6,9 +6,9 @@ PageControllerView is a Swift library that provides `tab view like` support for 
 
 ## Architecture
 
-- **Data Source**: Define any properties needed for your NSPageController. Replace with your data source.
+- **Data Source**: Define any properties needed for your `NSPageController`. Replace with your data source.
 - **Current Page**: This should change page from the caller. Use this to get callbacks when page changes, and also use it to set pages.
-- **MakeView**: Callback to make content for each page. Here we make a callback, that takes index and returns View for the NSHostingController to use. The idea is to make this more like swiftui `tabview` api.
+- **MakeView**: Callback to make content for each page. Here we make a callback, that takes index and returns View for the `NSHostingController` to use. The idea is to make this more like swiftui `tabview` api.
 
 ## Example Usage
 

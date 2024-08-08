@@ -7,6 +7,7 @@ import AppKit
 extension PageControllerView {
    /**
     * This method is part of the NSViewControllerRepresentable protocol in SwiftUI for macOS.
+    * - Description: Creates a coordinator that establishes communication between the SwiftUI view and the underlying NSPageController. The coordinator is responsible for implementing the delegate methods of the NSPageController and updating the SwiftUI view in response to changes in the page controller's state.
     * - Note: It's responsible for creating an instance of Coordinator, which is a helper class that can manage and coordinate with the NSPageController.
     * - Note: The Coordinator can handle tasks such as responding to user input, managing the current page index, and managing the view controllers.
     * - Returns A new instance of Coordinator.
@@ -18,6 +19,7 @@ extension PageControllerView {
     * This method is part of the NSViewControllerRepresentable protocol in SwiftUI for macOS.
     * It's responsible for creating an instance of NSPageController, which is a native macOS controller that manages navigation between pages of content.
     * The created NSPageController can be configured in this method, for example by setting its delegate.
+    * - Description: Initializes and configures an `NSPageController` instance for use with SwiftUI. The `NSPageController` is set up with a custom `EffectView` as its background, configured with the specified material and blending mode. The delegate is set to the coordinator created by `makeCoordinator()`, and the `arrangedObjects` property is populated with the `dataSource` array to manage the content of each page. The `transitionStyle` is set to `.horizontalStrip` to enable horizontal swiping between pages, and the `selectedIndex` is initialized to the current page index provided by the `currentPage` binding.
     * - Parameter: The context in which the NSViewControllerRepresentable is being used.
     * - Returns A configured instance of NSPageController.
     */
@@ -48,11 +50,10 @@ extension PageControllerView {
     */
    public func updateNSViewController(_ nsViewController: NSPageController, context: Context) {
       // Update the NSPageController when the SwiftUI view's state changes
-      goToPage(pageController: nsViewController, index: currentPage) // we add the binding here, not sure if the unwrapp is needed
+      goToPage( // Calls the goToPage function to navigate to the specified page index within the NSPageController
+         pageController: nsViewController, // Passes the NSPageController instance to the goToPage function
+         index: currentPage // Passes the current page index to the goToPage function (binding)
+      ) 
    }
 }
 #endif
-//      let pageController = NSPageController(transitionStyle: .scroll, navigationOrientation: .horizontal)
-//      pageController.dataSource = context.coordinator // Set the data source
-//      return pageController
-//      pageController.view.wantsLayer = true // might be needed?

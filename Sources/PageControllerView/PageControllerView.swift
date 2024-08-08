@@ -13,6 +13,7 @@ import AppKit
 public struct PageControllerView: NSViewControllerRepresentable { // PageControllerRepresentable
    /**
     * Define any properties needed for your NSPageController
+    * - Description: The `dataSource` property holds an array of `NSPageController.ObjectIdentifier` which uniquely identifies each page in the `PageControllerView`. It is used by the page controller to manage the creation and arrangement of the page content.
     */
    public let dataSource: [NSPageController.ObjectIdentifier] // Replace with your data source
    /**
@@ -23,6 +24,7 @@ public struct PageControllerView: NSViewControllerRepresentable { // PageControl
    /**
     * - Fixme: ⚠️️ we could try use some View somehow
     * - Fixme: ⚠️️ move into extension?
+    * - Description: The `MakeView` typealias defines a closure type that takes an `NSPageController.ObjectIdentifier` and returns a SwiftUI view wrapped in `AnyView`. This closure is used to dynamically create the content for each page in the `PageControllerView`.
     */
    public typealias MakeView = (_ id: NSPageController.ObjectIdentifier) -> AnyView
    /**
@@ -31,21 +33,23 @@ public struct PageControllerView: NSViewControllerRepresentable { // PageControl
     * - Remark: The idea is to make this more like swiftui `tabview` api
     */
    public var makeView: MakeView = { id in Swift.print("default makeView - id: \(id)"); return AnyView(EmptyView()) }
+   /**
+    * - Description: The `EffectView.Config` typealias defines a tuple type that represents the configuration for the `EffectView`. This configuration includes the material and blending mode for the visual effect view.
+    */
    public let effectViewConfig: EffectView.Config
    /**
     * Initializes a new PageControllerView
-    * - Fixme: ⚠️️ doc each line, use copilot
+    * - Description: Initializes a new PageControllerView with the specified data source, current page binding, effect view configuration, and a closure to create views for each page. This allows for the integration of a page controller within SwiftUI on macOS, providing functionality similar to a TabView with swipe navigation.
     * - Parameters:
     *   - dataSource: An array of identifiers for the pages. Each identifier is used to create the corresponding page.
     *   - currentPage: A binding to a property that tracks the currently selected page. The PageControllerView updates the property as the user interacts with the interface.
     *   - makeView: A closure that takes an identifier and returns the view for the corresponding page. By default, it returns an empty view.
     */
    public init(dataSource: [NSPageController.ObjectIdentifier], currentPage: Binding<Int>, effectViewConfig: EffectView.Config = EffectView.defaultConfig, makeView: @escaping MakeView = { _ in AnyView(EmptyView()) }) {
-      self.dataSource = dataSource
-      self._currentPage = currentPage
-      self.effectViewConfig = effectViewConfig
-      self.makeView = makeView
+      self.dataSource = dataSource // Assigns the provided dataSource array to the instance property.
+      self._currentPage = currentPage // Binds the provided currentPage Binding to the instance property.
+      self.effectViewConfig = effectViewConfig // Sets the effect view configuration with the provided config.
+      self.makeView = makeView // Stores the provided closure for creating views for each page.
    }
 }
-
 #endif
