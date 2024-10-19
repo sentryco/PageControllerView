@@ -3,8 +3,10 @@ import SwiftUI
 import AppKit
 /**
  * Preview
- * - Important: ⚠️️ Preview doesn't work properly with swiping, so run the app to see the swipe work properly
- * - Note: Because of github action we can't currently use more modern: #Preview(traits: .fixedLayout(width: 300, height: 300)) {
+ * - Important: ⚠️️ Preview doesn't work properly with swiping, so run the
+ *              app to see the swipe work properly
+ * - Note: Because of github action we can't currently use more modern:
+ *         #Preview(traits: .fixedLayout(width: 300, height: 300)) {
  * - Fixme: ⚠️️ Add darkmode to the preview
  * - Fixme: ⚠️️ Use modern preview syntax once github allows it
  */

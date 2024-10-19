@@ -4,22 +4,36 @@ import AppKit
 /**
  * Delegate
  * - Description: Informs the class on page id activity
- * - Remark: There are also other delegate callbacks: `pageControllerWillStartLiveTransition`, `didTransitionTo`, `frameFor`, `prepare viewController`
+ * - Remark: There are also other delegate callbacks: 
+ *           `pageControllerWillStartLiveTransition`, `didTransitionTo`, 
+ *           `frameFor`, `prepare viewController`
  */
 extension PageControllerView {
    /**
     * Define a Coordinator class to handle delegate callbacks
-    * - Description: The `Coordinator` class acts as a delegate for the `NSPageController`, handling page lifecycle events and coordinating the data source with the page content.
+    * - Description: The `Coordinator` class acts as a delegate for the
+    *                `NSPageController`, handling page lifecycle events and
+    *                coordinating the data source with the page content.
     */
    public class Coordinator: NSObject, NSPageControllerDelegate {
       /**
        * Reference to the parent `PageControllerView` instance
-       * - Description: Holds a reference to the `PageControllerView` that created this coordinator. This allows the coordinator to access the parent view's properties and methods, such as `dataSource` and `makeView`, to manage page content and respond to page lifecycle events.
+       * - Description: Holds a reference to the `PageControllerView` that created
+       *                this coordinator. This allows the coordinator to access the
+       *                parent view's properties and methods, such as `dataSource`
+       *                and `makeView`, to manage page content and respond to page
+       *                lifecycle events.
        */
       var parent: PageControllerView
       /**
        * Set parent
-       * - Description: The initializer sets the `parent` property to the provided `PageControllerView` instance. This association is crucial as it allows the `Coordinator` to access the `PageControllerView`'s properties and methods, which are necessary for the `Coordinator` to fulfill its role as a delegate, such as updating the `currentPage` and creating views for new pages.
+       * - Description: The initializer sets the `parent` property to the
+       *                provided `PageControllerView` instance. This association
+       *                is crucial as it allows the `Coordinator` to access the
+       *                `PageControllerView`'s properties and methods, which are
+       *                necessary for the `Coordinator` to fulfill its role as a
+       *                delegate, such as updating the `currentPage` and creating
+       *                views for new pages.
        */
       public init(_ pageControllerView: PageControllerView) {
          self.parent = pageControllerView
@@ -32,7 +46,10 @@ extension PageControllerView {
 extension PageControllerView.Coordinator {
    /**
     * Delegate callback (Boilerplate)
-    * - Description: Returns a unique identifier for the given object that can be used by the `NSPageController` to manage page content. The identifier is typically a string that uniquely represents the object in the data source array.
+    * - Description: Returns a unique identifier for the given object that can
+    *                be used by the `NSPageController` to manage page content.
+    *                The identifier is typically a string that uniquely
+    *                represents the object in the data source array.
     * - Returns: an identifier for the given object that we can use to get the data model item
     * - Remark: This could be based on the object's position in an array or its properties
     */
@@ -42,9 +59,16 @@ extension PageControllerView.Coordinator {
    }
    /**
     * Instatiate `ViewController` for identifier  (Returns the swift ui view)
-    * - Description: Instantiates a `NSViewController` for the given identifier by creating a SwiftUI view hierarchy that is hosted within an `NSHostingController`. This method is responsible for creating the view controller that will be displayed when a page is selected in the `NSPageController`.
+    * - Description: Instantiates a `NSViewController` for the given identifier
+    *                by creating a SwiftUI view hierarchy that is hosted within an
+    *                `NSHostingController`. This method is responsible for creating
+    *                the view controller that will be displayed when a page is
+    *                selected in the `NSPageController`.
     * - Returns: the view controller for the given identifier
-    * - Important: ⚠️️ To align page views to a constraintless environment we add the pageview to a ZStack that has .ignoresSafeArea() with a clear Rectangle that has idealWidth and idealHeight set to .inifinite. This solves a bug where 14px are added to top inset etc
+    * - Important: ⚠️️ To align page views to a constraintless environment we add
+    *              the pageview to a ZStack that has .ignoresSafeArea() with a clear
+    *              Rectangle that has idealWidth and idealHeight set to .inifinite.
+    *              This solves a bug where 14px are added to top inset etc
     * - Remark: This could involve looking up the identifier in a dictionary or storyboard
     * - Remark: Displays the `ViewController` in the page-controller
     * - Remark: We can also use `NSViewcontroller` and a `NSHostingView

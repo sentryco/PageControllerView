@@ -5,7 +5,9 @@ import AppKit
 extension PageControllerView {
    /**
     * Updates "page-flipper"
-    * - Description: This function navigates to a specified page index within the NSPageController. It uses an animation to smoothly transition from the current page to the new page.
+    * - Description: This function navigates to a specified page index within
+    *                the NSPageController. It uses an animation to smoothly
+    *                transition from the current page to the new page.
     * - Fixme: ⚠️️ We could make animation optional
     * - Fixme: ⚠️️ Remove param pageController, figure out how to reach it without
     * - Parameters:

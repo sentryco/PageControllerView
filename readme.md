@@ -62,3 +62,7 @@ struct MacApp: App {
 
 ## Todo: 
 - Add dedicated UITests
+- remove unit tests
+- Code Refactoring: Refactoring for Modern Swift Practices: The PageControllerView+NSViewControllerRepresentable.swift and other related files suggest improvements like using modern Swift syntax and possibly refactoring to reduce dependency on NSPageController specifics, making the code more modular and easier to manage.
+- Improving Error Handling: The current implementation does not robustly handle potential errors or exceptional cases, particularly in delegate methods and view controller management.
+- Integration and Build Process: GitHub Actions Workflow: The .github/workflows/Tests.yml file indicates that tests are temporarily disabled due to compatibility issues with Swift 5.9. Resolving this and ensuring continuous integration passes could prevent future bugs from being introduced.

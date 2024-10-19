@@ -3,15 +3,23 @@ import Cocoa
 import AppKit
 /**
  * A visual effect view that provides a translucent material to use as a background.
- * - Description: This class is a subclass of `NSVisualEffectView` and provides a configurable material and blending mode. It also overrides the `isFlipped` property to return `true`, indicating a top-left orientation.
- * - Remark: This view does not work with Auto Layout. Make sure the frame is set in layout in the superview.
- * - Remark: For more information on visual effects, see: https://mackuba.eu/2018/07/04/dark-side-mac-1/
+ * - Description: This class is a subclass of `NSVisualEffectView` and provides
+ *                a configurable material and blending mode. It also overrides
+ *                the `isFlipped` property to return `true`, indicating a top-left
+ *                orientation.
+ * - Remark:      This view does not work with Auto Layout. Make sure the frame is
+ *                set in layout in the superview.
+ * - Remark:      For more information on visual effects, see:
+ *                https://mackuba.eu/2018/07/04/dark-side-mac-1/
  * - Fixme: Add more documentation to the class and its methods.
  */
 open class EffectView: NSVisualEffectView {
    /**
     * Initializes a new instance of the `EffectView` with the given material, blending mode, and frame.
-    * - Description: Creates an instance of `EffectView` with customizable visual effect material, blending mode, and initial frame size. This initializer allows for easy setup of the view's appearance right upon creation.
+    * - Description: Creates an instance of `EffectView` with customizable
+    *                visual effect material, blending mode, and initial frame
+    *                size. This initializer allows for easy setup of the view's
+    *                appearance right upon creation.
     * - Parameters:
     *   - material: The translucent material to use as a background.
     *   - blendingMode: The blending mode to use.
@@ -26,7 +34,9 @@ open class EffectView: NSVisualEffectView {
    }
    /**
     * Required initializer that is not implemented.
-    * - Description: This initializer is unavailable because `EffectView` cannot be instantiated from a coder. Attempting to do so will result in a runtime error.
+    * - Description: This initializer is unavailable because `EffectView`
+    *                cannot be instantiated from a coder. Attempting to do so
+    *                will result in a runtime error.
     * - Parameter coder: The coder to use for decoding the view.
     */
    @available(*, unavailable)
@@ -40,7 +50,11 @@ open class EffectView: NSVisualEffectView {
 extension EffectView {
    /**
     * Configures the material and blending mode of the `EffectView`
-    * - Description: Configures the `EffectView` with a specified material and blending mode to customize its appearance. The material determines the kind of translucent background used, while the blending mode defines how the view's content blends with the background.
+    * - Description: Configures the `EffectView` with a specified material and
+    *                blending mode to customize its appearance. The material
+    *                determines the kind of translucent background used, while
+    *                the blending mode defines how the view's content blends
+    *                with the background.
     * - Fixme: ⚠️️ Add support for isEmphasized
     * - Parameters:
     *   - material: The translucent material to use as a background
@@ -57,7 +71,8 @@ extension EffectView {
 extension EffectView {
    /**
     * Defines the configuration for the `EffectView`
-    * - Description: Defines the configuration for the `EffectView`, including the material and blending mode.
+    * - Description: Defines the configuration for the `EffectView`, including
+    *                the material and blending mode.
     */
    public typealias Config = (
       material: NSVisualEffectView.Material, // The visual effect material used for the background of the EffectView.
