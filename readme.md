@@ -1,4 +1,5 @@
 [![Tests](https://github.com/sentryco/PageControllerView/actions/workflows/Tests.yml/badge.svg)](https://github.com/sentryco/PageControllerView/actions/workflows/Tests.yml)
+[![codebeat badge](https://codebeat.co/badges/d79fbf42-4e64-46f5-936b-ce8e4a95669c)](https://codebeat.co/projects/github-com-sentryco-pagecontrollerview-main)
 
 # 📖 PageControllerView
 
