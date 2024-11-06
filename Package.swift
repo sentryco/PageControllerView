@@ -9,14 +9,13 @@ let package = Package(
     products: [
         .library(
             name: "PageControllerView",
-            targets: ["PageControllerView"]),
+            targets: ["PageControllerView"])
     ],
     targets: [
         .target(
             name: "PageControllerView"),
         .testTarget(
             name: "PageControllerViewTests",
-            dependencies: ["PageControllerView"]),
+            dependencies: ["PageControllerView"])
     ]
 )
-

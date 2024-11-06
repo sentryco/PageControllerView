@@ -55,7 +55,7 @@ extension PageControllerView.Coordinator {
     */
    public func pageController(_ pageController: NSPageController, identifierFor object: Any) -> NSPageController.ObjectIdentifier { // String
       // Swift.print("Coordinator.identifierFor: \(object)")
-      return String(describing: object) // Return identifier
+      String(describing: object) // Return identifier
    }
    /**
     * Instatiate `ViewController` for identifier  (Returns the swift ui view)

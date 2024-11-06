@@ -77,7 +77,7 @@ extension PageControllerView {
       goToPage( // Calls the goToPage function to navigate to the specified page index within the NSPageController
          pageController: nsViewController, // Passes the NSPageController instance to the goToPage function
          index: currentPage // Passes the current page index to the goToPage function (binding)
-      ) 
+      )
    }
 }
 #endif

@@ -33,7 +33,7 @@ struct PageControl_Previews: PreviewProvider {
       }
    }
    static var previews: some View {
-      return ContentView()
+      ContentView()
          .frame(width: 300, height: 300)
    }
 }
