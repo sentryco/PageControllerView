@@ -12,17 +12,11 @@ on:
 jobs:
   build:
 
-    runs-on: macos-14 ## ref https://github.blog/changelog/2024-01-30-github-actions-macos-14-sonoma-is-now-available/
+    runs-on: macos-latest
 
     steps:
-    - uses: actions/checkout@v3
-    - name: Set up Swift
-      uses: fwal/setup-swift@v1
-      with:
-        swift-version: '6.0'
+    - uses: actions/checkout@v4
     - name: Build
       run: swift build -v
-    # - name: Run tests
-    #   run: swift test -v
-    # Temporarily disabling the test run on GitHub Actions due to a compatibility issue with Swift 5.9.
-    # Local tests are running fine. We are looking into resolving this issue.
+    ## - name: Run tests
+      ## run: swift test -v
