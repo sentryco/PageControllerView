@@ -1,10 +1,10 @@
-// swift-tools-version:6.0
+// swift-tools-version:5.9
 import PackageDescription
 
 let package = Package(
     name: "PageControllerView",
     platforms: [
-        .macOS(.v15) // macOS 14 and later
+        .macOS(.v14) // macOS 14 and later
     ],
     products: [
         .library(
