@@ -78,6 +78,7 @@ extension PageControllerView.Coordinator {
     *   - identifier: page id
     * - Returns: current page
     */
+   @MainActor // ⚠️️ Needed for Swift 6.0
    public func pageController(_ pageController: NSPageController, viewControllerForIdentifier identifier: NSPageController.ObjectIdentifier) -> NSViewController {
       // Swift.print("viewControllerForIdentifier \(identifier)")
       let rootView: some View = AnyView( // Wraps the provided view in a type-erasing AnyView to allow for heterogeneous view types
@@ -99,6 +100,7 @@ extension PageControllerView.Coordinator {
     * - Fixme: ⚠️️ We can add callback here to update `PageIndicator` (or use WillStartLiveTransition, if we want more instant UX etc)
     * - Parameter pageController: The pagecontroller that the live transition ended in
     */
+   @MainActor // ⚠️️ Needed for Swift 6.0
    public func pageControllerDidEndLiveTransition(_ pageController: NSPageController) {
       pageController.completeTransition() // Hide the transition view used for animation and show the selectedViewController.view. Generally, this is called during pageControllerDidEndLiveTransition: in the delegate when the new contents of view is ready to be displayed.
       parent.$currentPage.wrappedValue = pageController.selectedIndex // update binding
