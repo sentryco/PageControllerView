@@ -11,7 +11,13 @@ import AppKit
  *                set in layout in the superview.
  * - Remark:      For more information on visual effects, see:
  *                https://mackuba.eu/2018/07/04/dark-side-mac-1/
- * - Fixme: Add more documentation to the class and its methods.
+ * - Remark:      This class is a macOS-specific implementation of a visual effect view.
+ * - Remark:      The `EffectView` class is designed to be used in macOS applications to provide a translucent background.
+ * - Remark:      It is a subclass of `NSVisualEffectView` and overrides the `isFlipped` property to return `true`.
+ * - Remark:      The `isFlipped` property is overridden to ensure that the view's coordinate system has a top-left origin, which is consistent with the standard macOS coordinate system.
+ * - Remark:      The `EffectView` class does not support Auto Layout and requires the frame to be set manually in the layout of the superview.
+ * - Remark:      For more information on visual effects in macOS, see the following link:
+ *                https://mackuba.eu/2018/07/04/dark-side-mac-1/
  */
 open class EffectView: NSVisualEffectView {
    /**
