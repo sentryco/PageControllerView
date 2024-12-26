@@ -91,7 +91,7 @@ extension PageControllerView.Coordinator {
             .ignoresSafeArea() // ⚠️️ this is key to expanding the view to fill the NSView
       ) // ⚠️️ We can probably find a better way than using AnyView
       let hostingController = NSHostingController(rootView: rootView) // Initializes an NSHostingController with the specified rootView. The NSHostingController is a view controller that provides a bridge between SwiftUI views and AppKit, allowing SwiftUI views to be integrated into an AppKit view hierarchy.
-      hostingController.view.autoresizingMask = [.height, .width] // this is the key to make the swiftuiu view work on init and when window is resized // fix: doc this line
+      hostingController.view.autoresizingMask = [.height, .width] // this is the key to make the swiftuiu view work on init and when window is resized 
       return hostingController // Returns the NSHostingController that contains the SwiftUI view for the current page.
    }
    /**
